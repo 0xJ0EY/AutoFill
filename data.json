@@ -1,0 +1,30 @@
+{
+    "studentNr": "TESTDATA",
+    "dateStart": "2017-12-10",
+    "dateEnd": "2017-12-22",
+    "random": true,
+    "shows": {
+        "sunday": [
+            {
+                "name": "UML weblecture {week}",
+                "started": ["12:00", "13:00"],
+                "watched": ["00:45", "01:00"],
+                "devices": [
+                    "laptop",
+                    "TELEVISIE",
+                    "smartphone"
+                ],
+                "deviceOther": "pc",
+                "channel": "mediasite (weblectures)",
+                "rating": [7, 8, 9]
+            }
+        ],
+        "monday": [],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saterday": []
+    }
+
+}

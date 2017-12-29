@@ -1,0 +1,16 @@
+{
+  "name": "formsautofill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "format-unicorn": "^1.1.1",
+    "puppeteer": "^0.13.0",
+    "system-sleep": "^1.3.6"
+  }
+}
