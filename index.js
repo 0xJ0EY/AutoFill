@@ -30,6 +30,7 @@ const days = dates.getDatesInbetween(
     await page.goto(config.pageUrl, {waitUntil: 'domcontentloaded'});
 
     for (let i = 0; i < days.length; i++) {
+        let curWeek = Math.ceil(i / 7);
 
         // Get right date from date object 
         let date    = days[i];
@@ -42,17 +43,13 @@ const days = dates.getDatesInbetween(
         for (let j = 0; j < shows.length; j++) {
             let show = shows[j]; 
 
-            
-
             // Student nummer
             await page.click(selectors.STUDENT_NR);
             await page.keyboard.type(data.studentNr);
 
-            
             // Rating
             let rating = show.rating[i % show.rating.length];
 
-            // await page.click(selectors.RATING_CONTAINER + ' div[data-value="1" i]', {delay: 100});
             await page.click(selectors.RATING_CONTAINER + ' div[data-value="'+ rating +'" i]', {delay: 100});
 
             // Date
@@ -94,7 +91,6 @@ const days = dates.getDatesInbetween(
 
             await page.click(selectors.STARTED_MINUTES);
             await page.keyboard.type(started[1]);
-
         
             // Multi select devices
             for (let k = 0; k < show.devices.length; k++) {
@@ -109,18 +105,16 @@ const days = dates.getDatesInbetween(
                 await page.keyboard.type(show.deviceOther);
             }
 
-
             // Programma dropdown
             await page.click(selectors.CHANNEL);
             let program = show.channel;
             await page.click(selectors.CHANNEL_CONTAINER + ' div[data-value="'+ program +'" i]')
 
-
             // Program
             await page.click(selectors.PROGRAM);
 
             let name = show.name.formatUnicorn({
-                "week": i + 1
+                "week": 1 + curWeek
             });
 
             await page.keyboard.type(name);
@@ -135,20 +129,11 @@ const days = dates.getDatesInbetween(
             await page.click(selectors.WATCHED_MINUTES);
             await page.keyboard.type(watched[1]);
 
+            await page.click(selectors.SUBMIT_BUTTON);
+            sleep(100); // waitForNavigation doesnt seem to work, so just wait a forced amount.
 
-            const form = await page.$(selectors.FORM);
-            await page.evaluate(f => f.submit(), form);
-            await form.dispose();
-
-            // await page.click(selectors.SUBMIT_BUTTON);
-            await page.waitForNavigation();
-
-            console.log('done :D');
-
-            // await page.waitForNavigation({waitUntil: 'domcontentloaded'})
-
-            // Go to first page
-            // await page.goto(config.pageUrl, {waitUntil: 'domcontentloaded'});
+            await page.click(selectors.CONTINUE_BUTTON);
+            sleep(100);
         }
     }
 })();

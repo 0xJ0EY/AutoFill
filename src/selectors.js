@@ -1,5 +1,5 @@
 module.exports = {
-    "STUDENT_NR": "#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(1) > div.freebirdFormviewerViewItemsTextItemWrapper > div > div.quantumWizTextinputPaperinputMainContent.exportContent > div > div.quantumWizTextinputPaperinputInputArea > input",
+    "STUDENT_NR": "#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(1) > div.freebirdFormviewerViewItemsTextItemWrapper > div > div.quantumWizTextinputPaperinputMainContent.exportContent",
 
     "DATE": "#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(2) > div.freebirdFormviewerViewItemsDateDateInput > div > div.quantumWizTextinputPaperinputEl.freebirdThemedInput.freebirdFormviewerViewItemsDateDateInput > div.quantumWizTextinputPaperinputMainContent.exportContent > div > div.quantumWizTextinputPaperinputInputArea > input",
     "DATE_DAY": '#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(2) > div.freebirdFormviewerViewItemsDateDateInput > div > input[type="hidden"]:nth-child(5)',
@@ -22,7 +22,7 @@ module.exports = {
 
     "RATING_CONTAINER": "#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(8) > div:nth-child(2) > div > content > div",
 
-    "FORM": "#mG61Hd",
+    "SUBMIT_BUTTON": "#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewNavigationNavControls > div.freebirdFormviewerViewNavigationButtonsAndProgress > div > div > div.quantumWizButtonPaperbuttonFocusOverlay.exportOverlay",
 
-    "SUBMIT_BUTTON": "#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewNavigationNavControls > div.freebirdFormviewerViewNavigationButtonsAndProgress > div > div > div.quantumWizButtonPaperbuttonFocusOverlay.exportOverlay"
+    "CONTINUE_BUTTON": "body > div > div.freebirdFormviewerViewCenteredContent > div.freebirdFormviewerViewFormCard > div.freebirdFormviewerViewResponseConfirmContentContainer > div.freebirdFormviewerViewResponseLinksContainer > a"
 }
