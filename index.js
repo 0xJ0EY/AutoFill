@@ -8,7 +8,8 @@ const selectors = require('./src/selectors');
 
 const config    = require('./config.json');
 const data      = require('./data.json');
-const random    = data.random;
+
+const fs        = require('fs');
 
 const days = dates.getDatesInbetween(
     new Date(data.dateStart), 
@@ -132,8 +133,29 @@ const days = dates.getDatesInbetween(
             await page.click(selectors.SUBMIT_BUTTON);
             sleep(100); // waitForNavigation doesnt seem to work, so just wait a forced amount.
 
+            writeLog(date.toDateString() + " " + name);
+
+            let waitSec = (60 + (Math.random() * 120)) * 100;
+            console.log('Wait: ' + waitSec);
+            sleep(waitSec);
+
             await page.click(selectors.CONTINUE_BUTTON);
             sleep(100);
         }
     }
 })();
+
+function writeLog(log) {
+    if (!fs.existsSync('./log.txt')) {
+        fs.writeFile("./log.txt", "", (error) => {
+            console.log(error);
+        });
+    }
+
+    let date = new Date();
+    let datePrefix = "[" + date.toDateString() + " " + date.toTimeString() + "] ";
+
+    log = datePrefix + log + "\r\n";
+
+    fs.appendFileSync("./log.txt", log);
+}
