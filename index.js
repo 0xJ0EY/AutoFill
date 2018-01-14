@@ -48,7 +48,7 @@ const days = dates.getDatesInbetween(
             await page.keyboard.type(data.studentNr);
 
             // Rating
-            let rating = show.rating[i % show.rating.length];
+            let rating = show.rating[curWeek % show.rating.length];
 
             await page.click(selectors.RATING_CONTAINER + ' div[data-value="'+ rating +'" i]', {delay: 100});
 
@@ -83,7 +83,7 @@ const days = dates.getDatesInbetween(
             
 
             // Time started (HH:MM)
-            let timeStarted = show.started[i % show.started.length];
+            let timeStarted = show.started[curWeek % show.started.length];
             let started = timeStarted.split(":", 2);
 
             await page.click(selectors.STARTED_HOURS);
@@ -120,7 +120,7 @@ const days = dates.getDatesInbetween(
             await page.keyboard.type(name);
             
             // Time watched (HH:MM)
-            let timeWatched = show.watched[i % show.watched.length];
+            let timeWatched = show.watched[curWeek % show.watched.length];
             let watched = timeWatched.split(":", 2);
 
             await page.click(selectors.WATCHED_HOURS);
